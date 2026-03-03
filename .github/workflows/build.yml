@@ -102,6 +102,20 @@ env:
         - path: '*Linux_64bit.AppImage'
           name: Linux_X86-64_app_image
     - config:
+        name: Linux Arm
+        runs-on: ubuntu-24.04-arm
+        container: |
+          {
+            \"image\": \"ghcr.io/arduino/arduino-ide/linux:main\"
+          }
+        job-transfer-artifact-suffix: Linux_Arm64bit
+        mergeable-channel-file: 'false'
+      artifacts:
+        - path: '*Linux_Arm_64bit.zip'
+          name: Linux_Arm64_zip
+        - path: '*Linux_Arm_64bit.AppImage'
+          name: Linux_Arm64_app_image
+    - config:
         name: macOS x86
         runs-on: macos-15-intel
         container: |
